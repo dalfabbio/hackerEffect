@@ -1,17 +1,19 @@
 const title = document.querySelector('h1');
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let iterations=0;
+let interval = null;
+
 
 
 
 title.addEventListener('mouseover', e => {
-  const interval = setInterval(() => {
+  clearInterval(interval)
+  interval = setInterval(() => {
   letterChanger(e.target);
   if(iterations >= e.target.length) clearInterval(interval)
   iterations += 1/3; //PIù E' BASSO IL VALORE PIù VOLTE UNA LETTERA SARà RANDOMICA PRIMA DI FERMARSI SU QUELLA CORRETTA
 }, 30);
-console.log(iterations)
-// iterations = 0;
+iterations = 0;
 })
 
 function letterChanger(e) {
